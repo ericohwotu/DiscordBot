@@ -28,15 +28,15 @@ function sq(str, width = 1, height = 1) {
 
             // print out ht characters
             if (y === 0) {
-                result += rsa[x]
+                result += rsa[x] + " ";
             } else if (x === 0) {
-                result += rsa[y];
+                result += rsa[y]+ " ";
             }else if (y === rsa.length-1) {
-                result += rsa[(rsa.length-x)-1];
+                result += rsa[(rsa.length-x)-1]+ " ";
             } else if (x === rsa.length-1) {
-                result += rsa[(rsa.length-y)-1];
+                result += rsa[(rsa.length-y)-1]+ " ";
             }  else {
-                result += " ";
+                result += "  ";
             }
 
             //increment / decrement y
