@@ -50,4 +50,6 @@ function sq(str, width = 1, height = 1) {
     return result;
 }
 
-console.log(sq("radical",10,10));
+module.exports = {
+    _run: sq
+}
