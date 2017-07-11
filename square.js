@@ -50,4 +50,10 @@ function sq(str, width = 1, height = 1) {
     return result;
 }
 
-console.log(sq("PARTY",10,10));
+console.log(sq("REKT",2,2));
+
+console.log(sq("PARTY",1,5));
+
+console.log(sq("PARTY",5,5));
+
+console.log(sq("JUMPING",10,10));
