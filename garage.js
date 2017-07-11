@@ -287,17 +287,18 @@ function gId(lic) {
 }
 
 module.exports = {
-    _garage: garage,
-    _pendingCars: pendingCars,
-    _consolePending: consolePending,
-    _getId: gId,
-    _checkInCar2: checkInCar2,
-    _checkInCar: checkInCar,
-    _output: output,
-    _outputGarage: outputGarage,
-    _fixVehicle: fixVehicle,
-    _checkOutCar: checkOutCar,
-    _createCar: createVehicle,
+    _run: runCommand
+    // _garage: garage,
+    // _pendingCars: pendingCars,
+    // _consolePending: consolePending,
+    // _getId: gId,
+    // _checkInCar2: checkInCar2,
+    // _checkInCar: checkInCar,
+    // _output: output,
+    // _outputGarage: outputGarage,
+    // _fixVehicle: fixVehicle,
+    // _checkOutCar: checkOutCar,
+    // _createCar: createVehicle,
 };
 
 //added comment

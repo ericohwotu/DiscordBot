@@ -11,12 +11,11 @@ const client = new CommandoClient({
 });
 
 client.registry
-    .registerDefaultTypes()
     .registerGroups([
-        ['group1', 'Our First Command Group']
+        ['group1', 'Our First Command Group'],
+        ['projects', 'group for all my projects'],
+        ['api', 'group for all my projects']
     ])
-    .registerDefaultGroups()
-    .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.on('ready', () => {
