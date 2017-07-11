@@ -43,11 +43,11 @@ function sq(str, width = 1, height = 1) {
             y += dy;
         }
         result += "\n";
-        
+
         //increment / decrement x
         x += dx;
     }
     return result;
 }
 
-console.log(sq("radical",10,10));
+console.log(sq("PARTY",10,10));
