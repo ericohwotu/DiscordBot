@@ -5,7 +5,7 @@ module.exports = class SteamCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'steam',
-            group: 'projects',
+            group: 'api',
             memberName: 'steam',
             description: 'runs the square in based on the words',
             examples: ['steam']
