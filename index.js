@@ -13,8 +13,8 @@ const client = new CommandoClient({
 client.registry
     .registerGroups([
         ['group1', 'Our First Command Group'],
-        ['projects', 'group for all my projects'],
-        ['api', 'group for all my projects']
+        ['projects', 'Group for all my projects'],
+        ['api', 'Deals with all api integration']
     ])
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'commands'));

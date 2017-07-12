@@ -7,8 +7,8 @@ module.exports = class SteamCommand extends Command {
             name: 'steam',
             group: 'api',
             memberName: 'steam',
-            description: 'runs the square in based on the words',
-            examples: ['steam', 'hover'],
+            description: 'Interacts with the steam api to get appslist',
+            examples: ['steam search grand theft auto', 'steam details grand theft auto v'],
             args: [
                 {
                     key: 'action',
