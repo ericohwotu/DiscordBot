@@ -94,9 +94,6 @@ function checkInCar() {
 
 function checkOutCar(i) {
     // function to check out the car
-    var garageTable = document.getElementById("garageVehicles")
-
-    var doc = document.getElementById(i)
 
     if (garage.open) {
         var result = garage.vehicles.filter(function (obj) {
@@ -109,15 +106,13 @@ function checkOutCar(i) {
 
         console.log(i)
         console.log(vehicleToDelete)
-        if (vehicleToDelete[0]._parts.nSum("_damageLevel") == 0) garage.profit += vehicleToDelete[0]._parts.nSum("_fixCost")
+        if (nSum(vehicleToDelete[0]._parts, "_damageLevel") == 0) garage.profit += nSum(vehicleToDelete[0]._parts, "_fixCost")
 
         garage.vehicles = result
-        garageTable.removeChild(doc)
 
         console.log(result)
         return ">>> successfully checked out\n"
     } else {
-        alert("Sorry The Garage is closed. Vehicle will be left in until it reopens")
         return ">>> Sorry The Garage is closed. Vehicle will be left in until it reopens\n"
     }
 }
@@ -145,6 +140,7 @@ function fixVehicle(i) {
 // // ================================================ garage ui functions ==========================================//
 function runCommand(cmd) {
     var commands = cmd.split(" ")
+    console.log(commands)
     var consoleOutput = ""
 
     switch (commands[0]) {
@@ -185,7 +181,7 @@ function runCommand(cmd) {
             if (commands.length >= 3) {
                 if (commands[1] == "in") consoleOutput += checkInCar2(commands[2])
                 if (commands[1] == "out") {
-                    consoleOutput += checkOutCar(getId(commands[2]))
+                    consoleOutput += checkOutCar(gId(commands[2]))
                 }
             } else if (commands.length >= 2) {
                 if (commands[1] == "in" && pendingCars.length > 0) consoleOutput += checkInCar()
@@ -194,7 +190,7 @@ function runCommand(cmd) {
             break;
 
         case "fix":
-            if (commands.length >= 2) consoleOutput += fixVehicle(getId(commands[1]))
+            if (commands.length >= 2) consoleOutput += fixVehicle(gId(commands[1]))
             else consoleOutput += "please input the license plate\n"
             break;
 

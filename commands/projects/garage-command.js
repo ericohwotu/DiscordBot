@@ -12,6 +12,7 @@ module.exports = class GarageCommand extends Command {
         });
     }
     run(msg) {
+        console.log(msg.content.replace('!bot garage ',''))
         return msg.reply(garageSim._run(msg.content.replace('!bot garage ','')));
     }
 }
