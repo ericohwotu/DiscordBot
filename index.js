@@ -2,7 +2,7 @@ const {CommandoClient} = require('discord.js-commando');
 const path = require('path');
 const private = require('./token.js');
 const Discord = require('discord.js');
-const token = private.key;
+const token = private.discordkey;
 
 
 const client = new CommandoClient({

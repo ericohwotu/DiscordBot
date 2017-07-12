@@ -14,9 +14,10 @@ function getSiteList(str, msg) {
 
 function def(json, str, msg) {
 
+
     let res = json.filter(function (obj) {
         if (obj.name) {
-            return obj.name.toUpperCase().split(" ").includes(str.toUpperCase());
+            return obj.name.toUpperCase().includes(str.toUpperCase());
         } else if (obj.unitaryAuthArea) {
             return obj.unitaryAuthArea.toUpperCase().split(" ").includes(str.toUpperCase());
         } else {
@@ -36,8 +37,8 @@ function getTemp(id, msg) {
     let dailyUrl = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/" + id + "?res=daily&key=" + secrets.metkey;
     const res = request(dailyUrl, function (err, res, body) {
         let result = JSON.parse(body).SiteRep.DV.Location.Period[0].Rep[0];
-        let solution = "\n";
-        solution += "\nweather: " + vals._weather.members[result.W];
+        let solution = "";
+        solution += "\nWeather: " + vals._weather.members[result.W];
         solution += "\nVisibility: " + vals._visibility.members[result.V];
         msg.reply(solution);
         console.log(solution);
