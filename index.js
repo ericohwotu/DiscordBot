@@ -16,6 +16,7 @@ client.registry
         ['projects', 'group for all my projects'],
         ['api', 'group for all my projects']
     ])
+    .registerDefaults()
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.on('ready', () => {

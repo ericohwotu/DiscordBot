@@ -1,7 +1,7 @@
 'use strict';
 
 function sq(str, width = 1, height = 1) {
-    let result = "";
+    let result = "\n";
     let rsa = str.split("");
     let dx = -1;
     let dy = -1;
@@ -50,10 +50,7 @@ function sq(str, width = 1, height = 1) {
     return result;
 }
 
-console.log(sq("REKT",2,2));
-
-console.log(sq("PARTY",1,5));
-
-console.log(sq("PARTY",5,5));
-
-console.log(sq("JUMPING",10,10));
+console.log(sq("WORLD",2,2))
+module.exports = {
+    _run: sq
+}
