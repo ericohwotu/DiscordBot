@@ -7,12 +7,20 @@ module.exports = class GarageCommand extends Command {
             name: 'garage',
             group: 'projects',
             memberName: 'garage',
-            description: 'runs the garage.',
-            examples: ['garage']
+            description: 'Runs the garage project',
+            examples: ['garage open','garage output garage','garage create PEUGEUT SCYE34 9 NOFAULTS'],
+            args:[
+                {
+                    key: 'cmds',
+                    prompt: 'please input the commands',
+                    type: 'string'
+                }
+            ]
         });
     }
-    run(msg) {
-        console.log(msg.content.replace('!bot garage ',''))
-        return msg.reply(garageSim._run(msg.content.replace('!bot garage ','')));
+    run(msg, args) {
+        const {cmds} = args
+        console.log(cmds)
+        return msg.reply(garageSim._run(cmds));
     }
 }

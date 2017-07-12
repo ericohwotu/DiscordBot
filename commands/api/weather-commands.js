@@ -7,14 +7,22 @@ module.exports = class SteamCommand extends Command {
             name: 'weather',
             group: 'api',
             memberName: 'weather',
-            description: 'queries the weather based on the given location',
-            examples: ['weather']
+            description: 'Queries the weather based on the given location grom the Met Office',
+            examples: ['weather london'],
+            args:[
+                {
+                    key: 'location',
+                    prompt: 'for what location?',
+                    type: 'string'
+                }
+            ]
         });
     }
-    run(msg) {
-        // return msg.say(msg.content);
-        let commands = msg.content.replace('!bot weather ', '').trim()
-        return weatherScript.run(commands, msg);
+    run(msg, args) {
+        
+        const {location} = args
+
+        return weatherScript.run(location, msg);
 
     }
 }

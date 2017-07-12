@@ -30,7 +30,7 @@ function search(cmd, str, json, msg) {
             let replyString = "";
 
             results.forEach(function (obj) {
-                replyString += "\nName: " + obj.name;
+                replyString += "\n" + obj.name;
             });
 
             if(replyString.length>2000){

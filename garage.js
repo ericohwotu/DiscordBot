@@ -265,7 +265,6 @@ function checkInCar2(lic) {
         });
 
         garage.vehicles.push(result[0]);
-        addToGarageTable(result[0]);
 
         return ">>> " + lic + " added successfully\n"
     } else {
