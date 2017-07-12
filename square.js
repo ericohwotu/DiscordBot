@@ -11,9 +11,7 @@ function sq(str, width = 1, height = 1) {
     for (let i = 0; i < (rsa.length * width)-(width-1); i++) {
 
         //get the value of x by either adding or subtracting to it
-        if (x === rsa.length - 1 || x === 0) {
-            dx = -dx;
-        }
+        if (x === rsa.length - 1 || x === 0) { dx = -dx; }
 
         //reset the y variables for the next run
         y = 0;
@@ -22,9 +20,7 @@ function sq(str, width = 1, height = 1) {
         for (let j = 0; j < (rsa.length * height)-(height-1); j++) {
 
             //get the value of x by either adding or subtracting to it
-            if (y === rsa.length - 1 || y === 0) {
-                dy = -dy;
-            }
+            if (y === rsa.length - 1 || y === 0) { dy = -dy; }
 
             // print out ht characters
             if (y === 0) {
@@ -50,7 +46,6 @@ function sq(str, width = 1, height = 1) {
     return result;
 }
 
-console.log(sq("WORLD",2,2))
 module.exports = {
     _run: sq
 }

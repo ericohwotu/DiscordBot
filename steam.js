@@ -1,5 +1,5 @@
 'use strict';
-var request = require("request");
+const request = require("request");
 
 //use steam to get all the games
 
@@ -40,7 +40,6 @@ function getGameDetails(id, msg) {
         let result = JSON.parse(body)[id].data;
         let regex = /<br\s*[\/]?>/gi
         
-
         msg.reply("\nName: " + result.name + " \nDescription: " + result.short_description.replace(regex,"\r\n") + " \nRelease Date: " +result.release_date.date + "\nMinimum Age: " + result.required_age);
         console.log(result.name + " \n!!!d: " + result.short_description.replace(regex,"\r\n") + " \nrd: " +result.release_date.date + "\nra: " + result.required_age);
     });
