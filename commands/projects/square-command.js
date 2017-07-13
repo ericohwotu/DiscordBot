@@ -8,7 +8,29 @@ module.exports = class SquareCommand extends Command {
             group: 'projects',
             memberName: 'square',
             description: 'runs the square in based on the words',
-            examples: ['square']
+            examples: ['square'],
+            args: [
+                {
+
+                    key: 'word',
+                    prompt: 'what word do you want to square?',
+                    type: 'string'
+                },
+                {
+                    key: 'width',
+                    prompt: 'input the game?',
+                    type: 'string',
+                    max: 4,
+                    min: 1
+                },
+                {
+                    key: 'height',
+                    prompt: 'input the game?',
+                    type: 'string',
+                    max: 8,
+                    min: 1
+                }
+            ]
         });
     }
     run(msg) {

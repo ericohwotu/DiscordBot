@@ -21,7 +21,6 @@ module.exports = class SteamCommand extends Command {
     run(msg, args) {
         
         const {location} = args
-
         return weatherScript.run(location, msg);
 
     }

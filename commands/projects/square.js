@@ -1,7 +1,7 @@
 'use strict';
 
 function sq(str, width = 1, height = 1) {
-    let result = "\n";
+    let result = "**```css\n";
     let rsa = str.split("");
     let dx = -1;
     let dy = -1;
@@ -16,7 +16,7 @@ function sq(str, width = 1, height = 1) {
         //reset the y variables for the next run
         y = 0;
         dy = -Math.abs(dy);
-
+         
         for (let j = 0; j < (rsa.length * height)-(height-1); j++) {
 
             //get the value of x by either adding or subtracting to it
@@ -43,6 +43,7 @@ function sq(str, width = 1, height = 1) {
         //increment / decrement x
         x += dx;
     }
+    result += "```**"
     return result;
 }
 
