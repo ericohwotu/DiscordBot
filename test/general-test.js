@@ -61,7 +61,24 @@ it("FizzBuzz to 25 should return 4 buzz", function () {
 });
 
 //squares
-it("Squares should return nothing if width is 0", function(){
-    let x = squares._run("HELLO", 0, 5).replace("**","").replace("css","").replace("```","");
-    console.log(x)
-})
+it("Squares should return false if width is 0", function(){
+    let x = squares._run("HELLO", 0, 5);
+    if(x){
+        throw new Error("Should be false but got true")
+    }
+});
+
+it("Squares should return false if height is 0", function(){
+    let x = squares._run("HELLO", 5, 0);
+    if(x){
+        throw new Error("Should be false but got true")
+    }
+});
+
+it("Squares should be a string if width and height are not 0", function(){
+    let x = squares._run("HELLO", 2, 2);
+
+    if(x instanceof String){
+        throw new Error("Ecpected: String  But recieved: somethign else");
+    }
+});

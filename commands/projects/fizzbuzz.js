@@ -15,7 +15,6 @@ function fizzbuzz(n) {
             msg += " "+i;
         }
     }
-
     return msg;
 }
 

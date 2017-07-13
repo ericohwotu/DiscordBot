@@ -1,6 +1,9 @@
 'use strict';
 
 function sq(str, width = 1, height = 1) {
+    // checking inputs
+    if(width<=0 || height<=0){return false};
+
     let result = "**```css\n";
     let rsa = str.split("");
     let dx = -1;
