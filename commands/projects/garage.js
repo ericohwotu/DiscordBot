@@ -111,9 +111,9 @@ function checkOutCar(i) {
         garage.vehicles = result
 
         console.log(result)
-        return ">>> successfully checked out\n"
+        return "successfully checked out\n"
     } else {
-        return ">>> Sorry The Garage is closed. Vehicle will be left in until it reopens\n"
+        return "Sorry The Garage is closed. Vehicle will be left in until it reopens\n"
     }
 }
 
@@ -129,10 +129,10 @@ function fixVehicle(i) {
         //update the table000000000000
         //doc.appendChild(getProgressBar(0))
 
-        return ">>> Successfully fixed the vehicle\n"
+        return "Successfully fixed the vehicle\n"
     } else {
         alert("Sorry the garage is closed")
-        return ">>> Sorry the Garage is currently closed\n"
+        return "Sorry the Garage is currently closed\n"
     }
 
 }
@@ -146,12 +146,12 @@ function runCommand(cmd) {
     switch (commands[0]) {
         case "open":
             garage.open = true;
-            consoleOutput += ">>> The Garage Is Open\n"
+            consoleOutput += "The Garage Is Open\n"
             break;
 
         case "close":
             garage.open = false;
-            consoleOutput += ">>> The Garage Is Closed\n"
+            consoleOutput += "The Garage Is Closed\n"
             break;
 
         case "clear":
@@ -282,10 +282,10 @@ function gId(lic) {
 }
 
 module.exports = {
-    _run: runCommand
-    // _garage: garage,
-    // _pendingCars: pendingCars,
-    // _consolePending: consolePending,
+    _run: runCommand,
+    _garage: garage,
+    _pendingCars: pendingCars,
+    _consolePending: consolePending
     // _getId: gId,
     // _checkInCar2: checkInCar2,
     // _checkInCar: checkInCar,

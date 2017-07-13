@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const squareScript = require('./square.js')
+const squareScript = require('./fizzbuzz.js')
 
 module.exports = class SquareCommand extends Command {
     constructor(client) {
@@ -7,7 +7,7 @@ module.exports = class SquareCommand extends Command {
             name: 'fizzbuzz',
             group: 'projects',
             memberName: 'fizzbuzz',
-            description: 'runs the square in based on the words',
+            description: 'Runs the fizzbuzz command',
             examples: ['fizzbuzz'],
             args: [
                 {
@@ -20,14 +20,11 @@ module.exports = class SquareCommand extends Command {
             ]
         });
     }
-    run(msg,args) {
+    run(msg, args) {
         // return msg.say(msg.content);
-        
 
-        if (commands.length >= 3) {
-            return msg.reply(squareScript._run(commands[0], commands[1], commands[2]));
-        } else {
-            return msg.reply(commands + " Sorry you have not fed all the desire fields\n Right format: !bot square string <no> <no>");
-        }
+        let { limit } = args
+        return msg.reply(squareScript._run(limit));
+
     }
 }
