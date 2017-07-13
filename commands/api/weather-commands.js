@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const weatherScript = require('../../weather.js');
+const weatherScript = require('./weather.js');
 
 module.exports = class SteamCommand extends Command {
     constructor(client) {

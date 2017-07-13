@@ -1,4 +1,4 @@
-const secrets = require("./token");
+const secrets = require("../../token");
 const request = require("request");
 const vals = require("./weather-data")
 

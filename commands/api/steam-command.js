@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const steamScript = require('../../steam.js');
+const steamScript = require('./steam.js');
 
 module.exports = class SteamCommand extends Command {
     constructor(client) {

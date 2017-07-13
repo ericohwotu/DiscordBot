@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const garageSim = require('../../garage.js')
+const garageSim = require('./garage.js')
 
 module.exports = class GarageCommand extends Command {
     constructor(client) {
