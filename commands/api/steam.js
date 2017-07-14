@@ -22,7 +22,7 @@ function search(cmd, str, json, callbackObj) {
     //sort by name length to better match 
     results.sort(function (a, b) {
         return a.name.length - b.name.length;
-    })
+    });
 
     if (results[0]) {
         if (cmd.includes("SEARCH")) {

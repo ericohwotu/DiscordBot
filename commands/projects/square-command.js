@@ -37,4 +37,4 @@ module.exports = class SquareCommand extends Command {
         let {word, width, height} = args;
         return msg.reply(squareScript._run(word, height, width));
     }
-}
+};

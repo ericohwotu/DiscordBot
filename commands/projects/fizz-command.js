@@ -27,4 +27,4 @@ module.exports = class SquareCommand extends Command {
         return msg.reply(squareScript._run(limit));
 
     }
-}
+};

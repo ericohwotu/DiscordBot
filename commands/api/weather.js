@@ -3,7 +3,7 @@ const request = require("request");
 const vals = require("./weather-data")
 
 
-const sitelistUrl = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=" + secrets.metkey
+const sitelistUrl = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=" + secrets.metkey;
 //const dailyUrl = "http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=" + secrets.metkey
 
 function getSiteList(str, callback) {
@@ -63,7 +63,7 @@ function def(json, str, callback) {
         }
 
     } else {
-        callback.reply("Sorry the location wasnt found")
+        callback.reply("Sorry the location wasnt found");
     }
 }
 

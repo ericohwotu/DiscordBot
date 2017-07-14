@@ -24,12 +24,7 @@ module.exports = class SquareCommand extends Command {
     run(msg, args) {
         let { number } = args;
 
-        // var img = images[Math.floor(Math.random() * images.length)];
-        // return msg.channel.send({ files: [img] }).then((res)=>{
-        return res.reply(threesScript._run(number));
-        // })
-
-        //return msg.reply(threesScript._run(number));
+        return msg.reply(threesScript._run(number));
 
     }
 }
