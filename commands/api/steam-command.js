@@ -27,9 +27,8 @@ module.exports = class SteamCommand extends Command {
     run(msg, args) {
         // return msg.say(msg.content);
         const { action, search } = args;
-        console.log(search)
-
-        return steamScript.run(action.toUpperCase(), search, msg);
+        const callback = {limit: 1900, callback: steamScript.run, prompt: (a)=>msg.channel.send(a), reply: (a)=>msg.reply(a), collector: (a) => {return msg.channel.createMessageCollector(a)}}
+        return steamScript.run(action.toUpperCase(), search, callback);
     }
 
 

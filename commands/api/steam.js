@@ -3,17 +3,17 @@ const request = require("request");
 
 //use steam to get all the games
 
-function getGames(cmd, str, msg) {
+function getGames(cmd, str, callbackObj) {
     let gamesJSON = [];
 
     let requestURL = "http://api.steampowered.com/ISteamApps/GetAppList/v0002";
 
     let r = request(requestURL, function (err, res, body) {
-        search(cmd, str, JSON.parse(body).applist.apps, msg);
+        search(cmd, str, JSON.parse(body).applist.apps, callbackObj);
     });
 }
 
-function search(cmd, str, json, msg) {
+function search(cmd, str, json, callbackObj) {
 
     let results = json.filter(function (obj) {
         return obj.name.toUpperCase().includes(str.toUpperCase());
@@ -33,18 +33,17 @@ function search(cmd, str, json, msg) {
                 replyString += "\n" + obj.name;
             });
 
-            if(replyString.length>2000){
+            if(replyString.length>callbackObj.limit){
                 replyString = replyString.slice(0,1900) + "\n..."
             }
             
-            msg.reply(replyString);
+            callbackObj.reply(replyString);
 
         } else {
-            console.log(results)
-            getGameDetails(results[0].appid, (a)=>msg.reply(a));
+            getGameDetails(results[0].appid, callbackObj.reply);
         }
     } else {
-        msg.reply("Sorry game not found.");
+        callbackObj.reply("Sorry game not found.");
     }
 }
 
@@ -58,7 +57,6 @@ function getGameDetails(id, callback) {
         let regex = /<br\s*[\/]?>/gi
         if (result) {
             callback("\nName: " + result.name + " \nDescription: " + result.short_description.replace(regex, "\r\n") + " \nRelease Date: " + result.release_date.date + "\nMinimum Age: " + result.required_age);
-            console.log(result.name + " \n!!!d: " + result.short_description.replace(regex, "\r\n") + " \nrd: " + result.release_date.date + "\nra: " + result.required_age);
         } else {
             callback("sorry apparently the details cannot be found");
         }

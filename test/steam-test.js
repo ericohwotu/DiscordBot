@@ -1,7 +1,7 @@
-const wTest = require('../commands/api/weather.js');
+const wTest = require('../commands/api/steam.js');
 
-describe("Weather API Calls", () => {
-    it("25th element should be London Ashford Airport", (done) => {
+describe("Steam API Calls", () => {
+    it("Search should return a list", (done) => {
 
         let reply;
 
@@ -14,16 +14,14 @@ describe("Weather API Calls", () => {
                 done();
             },
             prompt: (a) => { a },
-            reply: (a) => { a },
-            collector: (a) => {
-                return {
-                    on:
-                    (x, y) => y(26),
-                    stop: () => 1
-                }
+            reply: (a) => { 
+                if (a.length <= 10) {
+                    throw new Error("Expected string length > 10  Acutal: " + a);
+                };
+                done(); 
             }
         }
-        wTest.run("london", callback)
+        wTest.run("SEARCH", "grand theft auto", callback)
 
     }).timeout(10000)
 
@@ -40,16 +38,9 @@ describe("Weather API Calls", () => {
                     throw new Error("Expected string length > 10  Acutal: " + a);
                 };
                 done();
-            },
-            collector: (a) => {
-                return {
-                    on:
-                    (x, y) => y(26),
-                    stop: () => 1
-                }
             }
         }
-        wTest.run("london", callback)
+        wTest.run("DETAILS", "Grand Theft Auto V", callback)
 
     }).timeout(10000)
 });

@@ -52,7 +52,7 @@ function def(json, str, callback) {
                 time: 30000,
             });
             
-            collector.on("collect", function (m) { i = m; console.log("haha" + m); collector.stop() })
+            collector.on("collect", function (m) { i = m; collector.stop() })
 
             collector.on("end", (collected, reason) => {
                 callback.callback(res[i].id, res[i].name, callback.reply);
