@@ -41,14 +41,14 @@ function search(cmd, str, json, msg) {
 
         } else {
             console.log(results)
-            getGameDetails(results[0].appid, msg);
+            getGameDetails(results[0].appid, (a)=>msg.reply(a));
         }
     } else {
-        msg.reply("Sorry game not found.")
+        msg.reply("Sorry game not found.");
     }
 }
 
-function getGameDetails(id, msg) {
+function getGameDetails(id, callback) {
     let gameResult = [];
 
     let requestURL = "http://store.steampowered.com/api/appdetails?appids=" + id;
@@ -57,10 +57,10 @@ function getGameDetails(id, msg) {
         let result = JSON.parse(body)[id].data;
         let regex = /<br\s*[\/]?>/gi
         if (result) {
-            msg.reply("\nName: " + result.name + " \nDescription: " + result.short_description.replace(regex, "\r\n") + " \nRelease Date: " + result.release_date.date + "\nMinimum Age: " + result.required_age);
+            callback("\nName: " + result.name + " \nDescription: " + result.short_description.replace(regex, "\r\n") + " \nRelease Date: " + result.release_date.date + "\nMinimum Age: " + result.required_age);
             console.log(result.name + " \n!!!d: " + result.short_description.replace(regex, "\r\n") + " \nrd: " + result.release_date.date + "\nra: " + result.required_age);
         } else {
-            msg.reply("sorry apparently the details cannot be found");
+            callback("sorry apparently the details cannot be found");
         }
     });
 
@@ -70,7 +70,8 @@ function getGameDetails(id, msg) {
 
 
 module.exports = {
-    run: getGames
+    run: getGames,
+    test: getGameDetails
 };
 
 

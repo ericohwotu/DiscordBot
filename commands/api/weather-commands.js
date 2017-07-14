@@ -19,9 +19,8 @@ module.exports = class SteamCommand extends Command {
         });
     }
     run(msg, args) {
-        
         const {location} = args
-        return weatherScript.run(location, msg);
-
+        const callback = {limit: 1900, callback: weatherScript.helper, prompt: (a)=>msg.channel.send(a), reply: (a)=>msg.reply(a), collector: (a) => {return msg.channel.createCollector(a)}}
+        return weatherScript.run(location, callback);
     }
 }

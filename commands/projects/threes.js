@@ -10,7 +10,6 @@ function threes(n){
         }else if(n % 3 === 2){
             n ++;
         }
-        console.log(n)
         count ++;
     }
 
