@@ -23,4 +23,4 @@ module.exports = class GarageCommand extends Command {
 
         return msg.reply(garageSim._run(cmds));
     }
-}
+};

@@ -65,15 +65,15 @@ function generateCar() {
 // }
 
 function generateParts(num, dam) {
-    partsList = [];
-    for (i = 0; i < num; i++) {
-        maxFixTime = Math.floor(Math.random() * 40) + 10;//in minutes 
-        maxFixCost = Math.floor(Math.random() * 200) + 50;//in pounds
+    var partsList = [];
+    for (var i = 0; i < num; i++) {
+        var maxFixTime = Math.floor(Math.random() * 40) + 10;//in minutes 
+        var maxFixCost = Math.floor(Math.random() * 200) + 50;//in pounds
 
-        if (!dam) brokenLevel = 0; else brokenLevel = Math.random();
+        if (!dam) var brokenLevel = 0; else var brokenLevel = Math.random();
 
-        fixTime = maxFixTime * brokenLevel;
-        fixCost = Math.floor(maxFixCost * brokenLevel);
+        var fixTime = maxFixTime * brokenLevel;
+        var fixCost = Math.floor(maxFixCost * brokenLevel);
         var part = { _id: i, _ref: getLicensePlate(10), _damageLevel: parseFloat(brokenLevel.toFixed(2)), _fixTime: fixTime, _fixCost: fixCost };
         partsList.push(part);
     }
@@ -115,7 +115,7 @@ function checkOutCar(i) {
 function fixVehicle(i) {
     if (garage.open) {
         var objIndex = garage.vehicles.findIndex((obj => obj._id == i));
-        for (j = 0; j < garage.vehicles[objIndex]._parts.length; j++) {
+        for (var j = 0; j < garage.vehicles[objIndex]._parts.length; j++) {
             garage.vehicles[objIndex]._parts[j]._damageLevel = 0;
         }
 
