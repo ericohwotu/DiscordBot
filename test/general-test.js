@@ -2,6 +2,7 @@
 let threes = require("../commands/projects/threes");
 let fizzbuzz = require("../commands/projects/fizzbuzz");
 let squares = require("../commands/projects/square");
+let weatherData = require("../commands/api/weather-data");
 
 it("Threes with and input of 3 should give 2", function () {
     let x = threes._run(3);

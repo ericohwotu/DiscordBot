@@ -1,5 +1,6 @@
 const { Command } = require('discord.js-commando');
 const threesScript = require('./threes.js')
+const images = ["http://i.imgur.com/Rhx86bl.jpg", "http://i.imgur.com/aMLFk.jpg", "http://i.imgur.com/4Jmxl58.jpg", "http://i.imgur.com/Y9i11Rx.jpg"]
 
 module.exports = class SquareCommand extends Command {
     constructor(client) {
@@ -21,9 +22,15 @@ module.exports = class SquareCommand extends Command {
         });
     }
     run(msg, args) {
-
         let { number } = args
-        return msg.reply(threesScript._run(number));
+
+        // var img = images[Math.floor(Math.random() * images.length)];
+        // console.log(img);
+        // return msg.channel.send({ files: [img] }).then((res)=>{
+        return res.reply(threesScript._run(number));
+        // })
+
+        //return msg.reply(threesScript._run(number));
 
     }
 }

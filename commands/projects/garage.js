@@ -86,7 +86,6 @@ function checkInCar() {
     if (garage.open) {
         var vehicle = pendingCars.shift()
         garage.vehicles.push(vehicle);
-        console.log(garage.vehicles)
     } else {
         return "Sorry The Garage is closed"
     }
@@ -104,13 +103,10 @@ function checkOutCar(i) {
             return obj._id == i;
         });
 
-        console.log(i)
-        console.log(vehicleToDelete)
         if (nSum(vehicleToDelete[0]._parts, "_damageLevel") == 0) garage.profit += nSum(vehicleToDelete[0]._parts, "_fixCost")
 
         garage.vehicles = result
 
-        console.log(result)
         return "successfully checked out\n"
     } else {
         return "Sorry The Garage is closed. Vehicle will be left in until it reopens\n"
@@ -120,18 +116,12 @@ function checkOutCar(i) {
 function fixVehicle(i) {
     if (garage.open) {
         var objIndex = garage.vehicles.findIndex((obj => obj._id == i));
-        console.log(objIndex)
         for (j = 0; j < garage.vehicles[objIndex]._parts.length; j++) {
             garage.vehicles[objIndex]._parts[j]._damageLevel = 0
         }
 
-        //console.log()
-        //update the table000000000000
-        //doc.appendChild(getProgressBar(0))
-
         return "Successfully fixed the vehicle\n"
     } else {
-        alert("Sorry the garage is closed")
         return "Sorry the Garage is currently closed\n"
     }
 
@@ -140,7 +130,7 @@ function fixVehicle(i) {
 // // ================================================ garage ui functions ==========================================//
 function runCommand(cmd) {
     var commands = cmd.split(" ")
-    console.log(commands)
+    //console.log(commands)
     var consoleOutput = ""
 
     switch (commands[0]) {

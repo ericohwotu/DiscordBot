@@ -2,7 +2,7 @@
 
 function threes(n){
     let count=0;
-    while(n>=1){
+    while(n>1){
         if(n % 3 === 0){
             n = n / 3;
         }else if(n % 3 === 1){
@@ -10,6 +10,7 @@ function threes(n){
         }else if(n % 3 === 2){
             n ++;
         }
+        console.log(n)
         count ++;
     }
 
