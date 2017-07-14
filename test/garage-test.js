@@ -38,6 +38,15 @@ it("check in should increase the amount of vehicles in the garage",function(){
     }
 });
 
+it("RY45KL be the first vehicle in the vhiecles array",function(){
+    garageSim._run("check in RY45KL");
+    let x = garageSim._garage.vehicles.length
+    
+    if(x !== 1){
+        throw new Error("Expected length: 1 Actual: " + x)
+    }
+});
+
 it("close should set the open state of the garage to false", function(){
 
     garageSim._run("close");
