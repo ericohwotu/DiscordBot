@@ -25,7 +25,6 @@ function nAverage(arr, prop) {
 
 // // ========================================= onload ==================================================== //
 
-console.log("started")
 generateCar()
 setInterval(generateCar, 2000);
 
@@ -53,7 +52,7 @@ function generateCar() {
 
         pendingIndex++;
     }
-    //console.log(pendingCars);
+
 }
 
 // function addVehicle() {
@@ -130,7 +129,7 @@ function fixVehicle(i) {
 // // ================================================ garage ui functions ==========================================//
 function runCommand(cmd) {
     var commands = cmd.split(" ")
-    //console.log(commands)
+
     var consoleOutput = ""
 
     switch (commands[0]) {
@@ -203,39 +202,39 @@ function runCommand(cmd) {
 }
 // //=========================================== command line scripts =============================================///
 function createVehicle(v) {
-    consolePending.push({ _id: pendingIndex, _brand: v.make, _parts: generateParts(v.parts, v.broken), _license: v.license })
+    consolePending.push({ _id: pendingIndex, _brand: v.make, _parts: generateParts(v.parts, v.broken), _license: v.license });
     pendingIndex++;
-    return v.license + " has been added to the created vehicles pool"
+    return v.license + " has been added to the created vehicles pool";
 }
 
 function outputGarage() {
-    var o = ""
+    var o = "";
 
-    o += "Open: " + garage.open + "\nVehicles: \n\n"
+    o += "Open: " + garage.open + "\nVehicles: \n\n";
     for (var i = 0; i < garage.vehicles.length; i++) {
-        o += "    Make: " + garage.vehicles[i]._brand + "\n"
-        o += "    License Plate: " + garage.vehicles[i]._license + "\n"
-        o += "    Damage Level: " + Math.floor(nAverage(garage.vehicles[i]._parts, "_damageLevel") * 100) + "\n"
-        o += "    Parts: " + garage.vehicles[i]._parts.length + "\n"
-        o += "    Cost: " + nSum(garage.vehicles[i]._parts, "_fixCost") + "\n\n"
+        o += "    Make: " + garage.vehicles[i]._brand + "\n";
+        o += "    License Plate: " + garage.vehicles[i]._license + "\n";
+        o += "    Damage Level: " + Math.floor(nAverage(garage.vehicles[i]._parts, "_damageLevel") * 100) + "\n";
+        o += "    Parts: " + garage.vehicles[i]._parts.length + "\n";
+        o += "    Cost: " + nSum(garage.vehicles[i]._parts, "_fixCost") + "\n\n";
     }
-    o += "Profits: " + garage.profit + "\n\n"
+    o += "Profits: " + garage.profit + "\n\n";
 
-    return o
+    return o;
 }
 
 function output(list) {
-    var o = ""
+    var o = "";
 
     for (var i = 0; i < list.length; i++) {
-        o += "    License Plate: " + list[i]._license + "\n"
-        o += "    Make: " + list[i]._brand + "\n"
-        o += "    Damage Level: " + Math.floor(nAverage(list[i]._parts, "_damageLevel") * 100) + "\n"
-        o += "    Parts: " + list[i]._parts.length + "\n"
-        o += "    Cost: " + nSum(list[i]._parts, "_fixCost") + "\n\n"
+        o += "    License Plate: " + list[i]._license + "\n";
+        o += "    Make: " + list[i]._brand + "\n";
+        o += "    Damage Level: " + Math.floor(nAverage(list[i]._parts, "_damageLevel") * 100) + "\n";
+        o += "    Parts: " + list[i]._parts.length + "\n";
+        o += "    Cost: " + nSum(list[i]._parts, "_fixCost") + "\n\n";
     }
 
-    return o
+    return o;
 }
 
 function checkInCar2(lic) {
@@ -248,7 +247,7 @@ function checkInCar2(lic) {
             return obj._license == lic;
         });
 
-        if (result.length == 0) return ">>> License plate does not exist\n"
+        if (result.length == 0) return ">>> License plate does not exist\n";
 
         consolePending = consolePending.filter(function (obj) {
             return obj._license != lic;
@@ -256,9 +255,9 @@ function checkInCar2(lic) {
 
         garage.vehicles.push(result[0]);
 
-        return ">>> " + lic + " added successfully\n"
+        return ">>> " + lic + " added successfully\n";
     } else {
-        return ">>> Sorry The Garage is closed\n"
+        return ">>> Sorry The Garage is closed\n";
     }
 }
 
@@ -267,8 +266,8 @@ function gId(lic) {
         return obj._license == lic;
     });
 
-    if (result.length <= 0) return pendingIndex + 25
-    else return result[0]._id
+    if (result.length <= 0) return pendingIndex + 25;
+    else return result[0]._id;
 }
 
 module.exports = {

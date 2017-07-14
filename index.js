@@ -20,7 +20,6 @@ client.registry
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.on('ready', () => {
-    console.log('Logged in!');
     //client.user.setGame('Game');
 });
 

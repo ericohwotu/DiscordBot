@@ -27,40 +27,40 @@ describe("FizzBuzz Functions", () => {
         x.shift()
 
         if (x.length !== 20) {
-            throw new Error("Expected: 20  Actual: " + x.length)
+            throw new Error("Expected: 20  Actual: " + x.length);
         }
     });
 
     it("FizzBuzz to 20 should return 1 fizzbuzz", function () {
         let x = fizzbuzz._run(20).replace(/\n/g, "").split(" ");
-        x.shift()
+        x.shift();
 
-        x = x.filter((x) => { return x.toUpperCase() === "fizzbuzz".toUpperCase() });
+        x = x.filter((x) => { return x.toUpperCase() === "fizzbuzz".toUpperCase(); });
 
         if (x.length !== 1) {
-            throw new Error("Expected: 1  Actual: " + x.length)
+            throw new Error("Expected: 1  Actual: " + x.length);
         }
     });
 
     it("FizzBuzz to 20 should return 5 fizz", function () {
         let x = fizzbuzz._run(20).replace(/\n/g, "").split(" ");
-        x.shift()
+        x.shift();
 
-        x = x.filter((x) => { return x.toUpperCase() === "fizz".toUpperCase() });
+        x = x.filter((x) => { return x.toUpperCase() === "fizz".toUpperCase(); });
 
         if (x.length !== 5) {
-            throw new Error("Expected: 6  Actual: " + x.length)
+            throw new Error("Expected: 6  Actual: " + x.length);
         }
     });
 
     it("FizzBuzz to 25 should return 4 buzz", function () {
         let x = fizzbuzz._run(20).replace(/\n/g, "").split(" ");
-        x.shift()
+        x.shift();
 
-        x = x.filter((x) => { return x.toUpperCase() === "buzz".toUpperCase() });
+        x = x.filter((x) => { return x.toUpperCase() === "buzz".toUpperCase(); });
 
         if (x.length !== 3) {
-            throw new Error("Expected: 6  Actual: " + x.length)
+            throw new Error("Expected: 6  Actual: " + x.length);
         }
     });
 });
@@ -70,14 +70,14 @@ describe("Square Function", () => {
     it("Squares should return false if width is 0", function () {
         let x = squares._run("HELLO", 0, 5);
         if (x) {
-            throw new Error("Should be false but got true")
+            throw new Error("Should be false but got true");
         }
     });
 
     it("Squares should return false if height is 0", function () {
         let x = squares._run("HELLO", 5, 0);
         if (x) {
-            throw new Error("Should be false but got true")
+            throw new Error("Should be false but got true");
         }
     });
 

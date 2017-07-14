@@ -1,4 +1,4 @@
-'using strict';
+"using strict";
 
 function fizzbuzz(n) {
 

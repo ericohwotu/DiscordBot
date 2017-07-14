@@ -1,4 +1,4 @@
-const wTest = require('../commands/api/weather.js');
+const wTest = require("../commands/api/weather.js");
 
 describe("Weather API Calls", () => {
     it("25th element should be London Ashford Airport", (done) => {
@@ -9,7 +9,7 @@ describe("Weather API Calls", () => {
             limit: 70000,
             callback: (x, y, z) => {
                 if (y != "London Ashford Airport") {
-                    throw new Error("Expected name: London Ashford Airport  Acutal: " + y)
+                    throw new Error("Expected name: London Ashford Airport  Acutal: " + y);
                 }
                 done();
             },
@@ -23,9 +23,9 @@ describe("Weather API Calls", () => {
                 }
             }
         }
-        wTest.run("london", callback)
+        wTest.run("london", callback);
 
-    }).timeout(10000)
+    }).timeout(10000);
 
     it("should return a string", (done) => {
 
@@ -38,7 +38,7 @@ describe("Weather API Calls", () => {
             reply: (a) => {
                 if (a.length <= 10) {
                     throw new Error("Expected string length > 10  Acutal: " + a);
-                };
+                }
                 done();
             },
             collector: (a) => {
@@ -49,7 +49,7 @@ describe("Weather API Calls", () => {
                 }
             }
         }
-        wTest.run("london", callback)
+        wTest.run("london", callback);
 
-    }).timeout(10000)
+    }).timeout(10000);
 });

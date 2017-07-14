@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 const request = require("request");
 
 //use steam to get all the games
@@ -34,7 +34,7 @@ function search(cmd, str, json, callbackObj) {
             });
 
             if(replyString.length>callbackObj.limit){
-                replyString = replyString.slice(0,1900) + "\n..."
+                replyString = replyString.slice(0,1900) + "\n...";
             }
             
             callbackObj.reply(replyString);
@@ -54,7 +54,7 @@ function getGameDetails(id, callback) {
 
     let r = request(requestURL, function (err, res, body) {
         let result = JSON.parse(body)[id].data;
-        let regex = /<br\s*[\/]?>/gi
+        let regex = /<br\s*[\/]?>/gi;
         if (result) {
             callback("\nName: " + result.name + " \nDescription: " + result.short_description.replace(regex, "\r\n") + " \nRelease Date: " + result.release_date.date + "\nMinimum Age: " + result.required_age);
         } else {

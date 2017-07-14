@@ -1,4 +1,4 @@
-const wTest = require('../commands/api/steam.js');
+const wTest = require("../commands/api/steam.js");
 
 describe("Steam API Calls", () => {
     it("Search should return a list", (done) => {
@@ -9,7 +9,7 @@ describe("Steam API Calls", () => {
             limit: 70000,
             callback: (x, y, z) => {
                 if (y != "London Ashford Airport") {
-                    throw new Error("Expected name: London Ashford Airport  Acutal: " + y)
+                    throw new Error("Expected name: London Ashford Airport  Acutal: " + y);
                 }
                 done();
             },
@@ -17,13 +17,13 @@ describe("Steam API Calls", () => {
             reply: (a) => { 
                 if (a.length <= 10) {
                     throw new Error("Expected string length > 10  Acutal: " + a);
-                };
+                }
                 done(); 
             }
         }
-        wTest.run("SEARCH", "grand theft auto", callback)
+        wTest.run("SEARCH", "grand theft auto", callback);
 
-    }).timeout(10000)
+    }).timeout(10000);
 
     it("should return a string", (done) => {
 
@@ -36,11 +36,11 @@ describe("Steam API Calls", () => {
             reply: (a) => {
                 if (a.length <= 10) {
                     throw new Error("Expected string length > 10  Acutal: " + a);
-                };
+                }
                 done();
             }
         }
-        wTest.run("DETAILS", "Grand Theft Auto V", callback)
+        wTest.run("DETAILS", "Grand Theft Auto V", callback);
 
-    }).timeout(10000)
+    }).timeout(10000);
 });
